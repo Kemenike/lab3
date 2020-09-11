@@ -56,7 +56,7 @@
 //
 #define PORT 443
 #define USERAGENT "CMPS-3350"
-const MAX_READ_ERRORS = 100;
+const int MAX_READ_ERRORS = 100;
 
 
 int main(int argc, char *argv[]){
