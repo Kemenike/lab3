@@ -56,6 +56,9 @@
 //
 #define PORT 443
 #define USERAGENT "CMPS-3350"
+//FIXED WARNING...:'MAX_READ_ERRORS' does not name a type
+	//...With...: Adding type 'int' to var.
+	//ORIGINAL LINE: const MAX_READ_ERRORS = 100;
 const int MAX_READ_ERRORS = 100;
 
 
@@ -67,6 +70,9 @@ int main(int argc, char *argv[]){
     struct hostent *host;
     struct sockaddr_in addr;
     BIO *outbio = NULL;
+	//FIXED WARNING...: "invalid conversion from 'const SSL_METHOD'"
+		//...With: Changing next line to 'const' type array.
+		//ORIGINAL LINE: SSL_METHOD *method;
     const SSL_METHOD *method;
     SSL_CTX *ctx;
     SSL *ssl;
