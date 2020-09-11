@@ -67,7 +67,7 @@ int main(int argc, char *argv[]){
     struct hostent *host;
     struct sockaddr_in addr;
     BIO *outbio = NULL;
-    SSL_METHOD *method;
+    const SSL_METHOD *method;
     SSL_CTX *ctx;
     SSL *ssl;
     char req[1000];
@@ -120,8 +120,9 @@ int main(int argc, char *argv[]){
 	sprintf(req, "GET /%s HTTP/1.1\r\nHost: %s\r\nUser-Agent: %s\r\n\r\n", pagename, hostname, USERAGENT);    
     req_len = strlen(req);
     ret = SSL_write(ssl, req, req_len);
-	if (ret <= 0)
+	if (ret <= 0) {
 		fprintf(stderr, "ERROR: SSL_write\n"); fflush(stderr);
+	}
 	//
 	//Get data returned from the server.
 	//First, do priming read.
