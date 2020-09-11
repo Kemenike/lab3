@@ -127,7 +127,12 @@ int main(int argc, char *argv[]){
     req_len = strlen(req);
     ret = SSL_write(ssl, req, req_len);
 	if (ret <= 0) {
-		fprintf(stderr, "ERROR: SSL_write\n"); fflush(stderr);
+		//Fixed Warning...: "this 'if' clause does not guard this statement, ..."
+			//...With: the addition of brackets.
+			/*Original code 
+			if (ret <= 0) fprintf(stderr, "ERROR: SSL_write\n");fflush(stderr);			*/
+		fprintf(stderr, "ERROR: SSL_write\n"); 
+		fflush(stderr);
 	}
 	//
 	//Get data returned from the server.
