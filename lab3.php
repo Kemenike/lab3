@@ -9,5 +9,5 @@ else {
     echo "number:" . $num . "<br>";
 }
 echo "<br>";
-echo "<img src=\"diagram1.gif\" style=\"width:250px;height:auto;\"/>";
+echo "<img src=\"diagram1.gif\" style=\"width:500px;height:auto;\"/>";
 ?>
